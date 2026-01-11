@@ -17,6 +17,15 @@
       "skills": [
         "./tianqin-networking"
       ]
+    },
+    {
+      "name": "tianqin-channel",
+      "description": "Xiaomi Tianqin (天琴/Lyra) Channel SDK for cross-device data transmission",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./tianqin-channel"
+      ]
     }
   ]
 }

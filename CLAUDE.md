@@ -37,7 +37,8 @@ description: Clear description of what this skill does and when Claude should us
 
 ## Current Skills
 
-- `tianqin-networking/` - Xiaomi Tianqin (天琴/Lyra) Networking SDK documentation for cross-device discovery and communication
+- `tianqin-networking/` - Xiaomi Tianqin (天琴/Lyra) Networking SDK for cross-device discovery and communication
+- `tianqin-channel/` - Xiaomi Tianqin (天琴/Lyra) Channel SDK for cross-device data transmission
 
 ## Creating New Skills
 
