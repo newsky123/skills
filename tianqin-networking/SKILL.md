@@ -17,6 +17,37 @@ The Tianqin Networking SDK (`com.xiaomi.continuity.networking.NetworkingManager`
 - Device property queries
 - Cross-platform support (Android, iOS, Windows, etc.)
 
+## Prerequisites
+
+### Gradle Configuration
+
+Add Xiaomi maven repositories to your project-level `build.gradle`:
+
+```groovy
+repositories {
+    // ... other repositories
+    maven { url "https://pkgs.d.xiaomi.net:443/artifactory/maven-release-virtual/" }
+    maven { url "https://pkgs.d.xiaomi.net:443/artifactory/maven-remote-virtual/" }
+    maven { url "https://pkgs.d.xiaomi.net:443/artifactory/maven-snapshot-virtual/" }
+}
+```
+
+Add the SDK dependency to your module-level `build.gradle`:
+
+```groovy
+dependencies {
+    implementation "com.xiaomi.continuity:sdk:5.0.131.10.0616156"
+}
+```
+
+### Permissions
+
+Add required permission to `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="com.xiaomi.permission.BIND_CONTINUITY_SERVICE_INTERNAL" />
+```
+
 ## Quick Start
 
 ### Basic Setup
@@ -201,13 +232,6 @@ manager.removeServiceListener(listener);
 manager.removeServiceInfo(serviceInfo);
 manager.unregisterDeathCallback(deathCallback);
 manager.unbindService();
-```
-
-### Permissions
-
-Required permission for service operations:
-```xml
-<uses-permission android:name="com.xiaomi.permission.BIND_CONTINUITY_SERVICE_INTERNAL" />
 ```
 
 ## Detailed Documentation
