@@ -1,6 +1,6 @@
 ---
 name: tianqin-channel
-description: Comprehensive documentation for Xiaomi Tianqin (天琴/Lyra) Channel SDK (com.xiaomi.continuity.channel.ContinuityChannelManager). Use when working with Tianqin transmission channels, data transfer, cross-device communication, or when the user mentions ContinuityChannelManager, ChannelListener, Channel, Packet, createChannel, registerChannelListener, or any Tianqin/Lyra channel APIs. Covers channel creation, data sending/receiving, file transfer, and all channel data types.
+description: Comprehensive documentation for Xiaomi Tianqin (天琴/Lyra) Channel SDK (com.xiaomi.continuity.channel.ContinuityChannelManager). Use when working with Tianqin transmission channels, data transfer, cross-device communication, static channel activation (静态传输通道激活/拉起), ContinuityListenerService, or when the user mentions ContinuityChannelManager, ChannelListener, Channel, Packet, createChannel, registerChannelListener, StaticConfig, ACTION_REQUEST_CONNECTION, or any Tianqin/Lyra channel APIs. Covers channel creation, data sending/receiving, file transfer, static configuration, and all channel data types.
 ---
 
 # Tianqin Channel SDK
@@ -16,6 +16,7 @@ The Tianqin Channel SDK (`com.xiaomi.continuity.channel.ContinuityChannelManager
 - File and message transfer with progress tracking
 - Channel confirmation and security verification
 - Automatic medium selection based on conditions
+- **Static channel activation** (process wake-up on connection request)
 
 ## Prerequisites
 
@@ -43,6 +44,9 @@ dependencies {
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
+<!-- For static channel activation -->
+<uses-permission android:name="com.xiaomi.permission.BIND_CONTINUITY_SERVICE" />
+<uses-permission android:name="com.xiaomi.permission.BIND_CONTINUITY_SERVICE_INTERNAL" />
 ```
 
 ## Quick Start
@@ -235,6 +239,64 @@ public void onChannelConfirm(String deviceId, ServiceName serviceName,
 }
 ```
 
+## Static Channel Activation (静态传输通道激活)
+
+Static configuration allows your app to receive channel connection requests without running. When a remote device initiates a connection, your process is woken via `bindService`.
+
+### Quick Setup
+
+1. Create Service extending `ContinuityListenerService`:
+
+```java
+public class ContinuitySampleService extends ContinuityListenerService {
+    @Override
+    public void onNotify(@NonNull Intent intent) {
+        if (StaticConfig.ACTION_REQUEST_CONNECTION.equals(intent.getAction())) {
+            ServiceName serviceName = intent.getExtras()
+                .getParcelable(StaticConfig.EXTRA_SERVICE_NAME);
+            // Immediately register channel listener to receive connection
+            ContinuityChannelManager.getInstance(this)
+                .registerChannelListener(serviceName, options, listener, executor);
+        }
+    }
+}
+```
+
+2. Configure in AndroidManifest.xml:
+
+```xml
+<service
+    android:name=".ContinuitySampleService"
+    android:exported="true"
+    android:permission="com.xiaomi.permission.BIND_CONTINUITY_LISTENER_SERVICE">
+    <intent-filter>
+        <action android:name="com.xiaomi.continuity.action.STATIC_CONFIG_ACTION" />
+    </intent-filter>
+    <meta-data android:name="static_networking_service_list"
+        android:resource="@xml/networking_service_list" />
+</service>
+```
+
+3. Create res/xml/networking_service_list.xml with `notifyConnect="true"`:
+
+```xml
+<networking_service_list>
+    <service
+        serviceName="myChannelService"
+        serviceData="[1,2]"
+        notifyConnect="true"
+        trustLevel="sameAccount" />
+</networking_service_list>
+```
+
+**Key Points:**
+- `notifyConnect="true"` enables process wake-up on connection request
+- Requires `BIND_CONTINUITY_SERVICE_INTERNAL` permission
+- Register `ChannelListener` immediately in `onNotify()` - connection has timeout
+- Auto-unbinds after 10s of no callbacks
+
+For complete static configuration options, see **[Static Channel Activation](references/static-channel.md)**.
+
 ## Cleanup
 
 ```java
@@ -252,6 +314,7 @@ protected void onDestroy() {
 
 - **[API Reference](references/api-reference.md)**: Complete interface documentation, all methods, parameters, callbacks, and data types
 - **[Code Examples](references/examples.md)**: File transfer, progress tracking, and common patterns
+- **[Static Channel Activation](references/static-channel.md)**: Static configuration for process wake-up on connection request
 
 ## Version Notes
 
