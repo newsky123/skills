@@ -1,0 +1,22 @@
+{
+  "name": "xiaomi-skills",
+  "owner": {
+    "name": "Jianxin Peng",
+    "email": "pengjianxin@xiaomi.com"
+  },
+  "metadata": {
+    "description": "Xiaomi SDK skills for Claude Code",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "tianqin-networking",
+      "description": "Xiaomi Tianqin (天琴/Lyra) Networking SDK for cross-device discovery and communication",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./tianqin-networking"
+      ]
+    }
+  ]
+}
