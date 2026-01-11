@@ -1,15 +1,15 @@
 ---
 name: tianqin-channel
-description: Comprehensive documentation for Xiaomi Tianqin (天琴/Lyra) Channel SDK (com.xiaomi.continuity.channel.ContinuityChannelManager). Use when working with Tianqin transmission channels, data transfer, cross-device communication, static channel activation (静态传输通道激活/拉起), ContinuityListenerService, or when the user mentions ContinuityChannelManager, ChannelListener, Channel, Packet, createChannel, registerChannelListener, StaticConfig, ACTION_REQUEST_CONNECTION, or any Tianqin/Lyra channel APIs. Covers channel creation, data sending/receiving, file transfer, static configuration, and all channel data types.
+description: Comprehensive documentation for Xiaomi Tianqin-Lyra (天琴) Channel SDK (com.xiaomi.continuity.channel.ContinuityChannelManager). Use when working with Tianqin transmission channels, data transfer, cross-device communication, static channel activation (静态传输通道激活/拉起), ContinuityListenerService, or when the user mentions ContinuityChannelManager, ChannelListener, Channel, Packet, createChannel, registerChannelListener, StaticConfig, ACTION_REQUEST_CONNECTION, or any Tianqin-Lyra channel APIs. Covers channel creation, data sending/receiving, file transfer, static configuration, and all channel data types.
 ---
 
-# Tianqin Channel SDK
+# Tianqin-Lyra Channel SDK
 
-Comprehensive guidance for using the Xiaomi Tianqin (天琴/Lyra) Channel SDK for cross-device data transmission.
+Comprehensive guidance for using the Xiaomi Tianqin-Lyra (天琴) Channel SDK for cross-device data transmission.
 
 ## Overview
 
-The Tianqin Channel SDK (`com.xiaomi.continuity.channel.ContinuityChannelManager`) enables secure data transmission channels between trusted Xiaomi devices. It provides:
+The Tianqin-Lyra Channel SDK (`com.xiaomi.continuity.channel.ContinuityChannelManager`) enables secure data transmission channels between trusted Xiaomi devices. It provides:
 
 - Bidirectional data transmission channels
 - Multiple connection mediums (BLE, WLAN, P2P, Bluetooth)

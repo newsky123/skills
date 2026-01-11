@@ -1,4 +1,4 @@
-# Tianqin Channel Code Examples
+# Tianqin-Lyra Channel Code Examples
 
 ## Complete Server-Client Example
 

@@ -1,8 +1,8 @@
-# Tianqin Networking Code Examples
+# Tianqin-Lyra Networking Code Examples
 
 ## Complete Sample Application
 
-This is a complete Android Activity demonstrating all major features of the Tianqin Networking SDK.
+This is a complete Android Activity demonstrating all major features of the Tianqin-Lyra Networking SDK.
 
 ```java
 package com.xiaomi.continuity.sample;
@@ -530,7 +530,7 @@ Log.i(TAG, "Device: " + deviceName +
 ```java
 // Register death callback for automatic recovery
 manager.registerDeathCallback(() -> {
-    Log.e(TAG, "Tianqin service died, re-initializing...");
+    Log.e(TAG, "Tianqin-Lyra service died, re-initializing...");
 
     // Re-initialize manager
     NetworkingManager newManager = NetworkingManager.getInstance(context);

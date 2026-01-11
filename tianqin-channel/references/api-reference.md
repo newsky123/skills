@@ -1,4 +1,4 @@
-# Tianqin Channel API Reference
+# Tianqin-Lyra Channel API Reference
 
 接口类：`com.xiaomi.continuity.channel.ContinuityChannelManager`
 

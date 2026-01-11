@@ -1,4 +1,4 @@
-# Tianqin Networking API Reference
+# Tianqin-Lyra Networking API Reference
 
 ## NetworkingManager Interface
 

@@ -1,15 +1,15 @@
 ---
 name: tianqin-networking
-description: Comprehensive documentation for Xiaomi Tianqin (天琴/Lyra) Networking SDK (com.xiaomi.continuity.networking.NetworkingManager). Use when working with Tianqin device discovery, service registration, cross-device networking, static service activation (静态服务激活/拉起), ContinuityListenerService, or when the user mentions NetworkingManager, ServiceListener, TrustedDeviceInfo, BusinessServiceInfo, StaticConfig, or any Tianqin/Lyra networking APIs. Covers device discovery, service publishing, static configuration, callbacks, filters, and all data types.
+description: Comprehensive documentation for Xiaomi Tianqin-Lyra (天琴) Networking SDK (com.xiaomi.continuity.networking.NetworkingManager). Use when working with Tianqin device discovery, service registration, cross-device networking, static service activation (静态服务激活/拉起), ContinuityListenerService, or when the user mentions NetworkingManager, ServiceListener, TrustedDeviceInfo, BusinessServiceInfo, StaticConfig, or any Tianqin-Lyra networking APIs. Covers device discovery, service publishing, static configuration, callbacks, filters, and all data types.
 ---
 
-# Tianqin Networking SDK
+# Tianqin-Lyra Networking SDK
 
-Comprehensive guidance for using the Xiaomi Tianqin (天琴/Lyra) Networking SDK for cross-device discovery and communication.
+Comprehensive guidance for using the Xiaomi Tianqin-Lyra (天琴) Networking SDK for cross-device discovery and communication.
 
 ## Overview
 
-The Tianqin Networking SDK (`com.xiaomi.continuity.networking.NetworkingManager`) enables automatic device discovery and service registration across trusted Xiaomi devices. It provides:
+The Tianqin-Lyra Networking SDK (`com.xiaomi.continuity.networking.NetworkingManager`) enables automatic device discovery and service registration across trusted Xiaomi devices. It provides:
 
 - Automatic device discovery via BLE and WLAN
 - Service registration and discovery
@@ -305,7 +305,7 @@ For complete API reference, data types, and code examples:
 
 ## Version Notes
 
-Features marked with "3.0+" require Tianqin SDK version 3.0 or later:
+Features marked with "3.0+" require Tianqin-Lyra SDK version 3.0 or later:
 - `updateNetworkingPolicy()` with DeviceFilter parameter
 - `addServiceInfo()` with ServiceInfoOption parameter
 - `getTrustedDeviceList()` async variant

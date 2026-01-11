@@ -5,13 +5,13 @@
     "email": "pengjianxin@xiaomi.com"
   },
   "metadata": {
-    "description": "Xiaomi Tianqin (天琴/Lyra) SDK skills for Claude Code",
+    "description": "Xiaomi Tianqin-Lyra (天琴) SDK skills for Claude Code",
     "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "tianqin-networking",
-      "description": "Xiaomi Tianqin (天琴/Lyra) Networking SDK for cross-device discovery and communication",
+      "description": "Xiaomi Tianqin-Lyra (天琴) Networking SDK for cross-device discovery and communication",
       "source": "./",
       "strict": false,
       "skills": [
@@ -20,7 +20,7 @@
     },
     {
       "name": "tianqin-channel",
-      "description": "Xiaomi Tianqin (天琴/Lyra) Channel SDK for cross-device data transmission",
+      "description": "Xiaomi Tianqin-Lyra (天琴) Channel SDK for cross-device data transmission",
       "source": "./",
       "strict": false,
       "skills": [
