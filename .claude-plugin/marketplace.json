@@ -1,11 +1,11 @@
 {
-  "name": "xiaomi-skills",
+  "name": "Xiaomi Tianqin (天琴/Lyra)-skills",
   "owner": {
     "name": "Jianxin Peng",
     "email": "pengjianxin@xiaomi.com"
   },
   "metadata": {
-    "description": "Xiaomi SDK skills for Claude Code",
+    "description": "Xiaomi Tianqin (天琴/Lyra) SDK skills for Claude Code",
     "version": "1.0.0"
   },
   "plugins": [
