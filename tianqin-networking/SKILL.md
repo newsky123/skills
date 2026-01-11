@@ -1,6 +1,6 @@
 ---
 name: tianqin-networking
-description: Comprehensive documentation for Xiaomi Tianqin (天琴/Lyra) Networking SDK (com.xiaomi.continuity.networking.NetworkingManager). Use when working with Tianqin device discovery, service registration, cross-device networking, or when the user mentions NetworkingManager, ServiceListener, TrustedDeviceInfo, BusinessServiceInfo, or any Tianqin/Lyra networking APIs. Covers device discovery, service publishing, callbacks, filters, and all data types.
+description: Comprehensive documentation for Xiaomi Tianqin (天琴/Lyra) Networking SDK (com.xiaomi.continuity.networking.NetworkingManager). Use when working with Tianqin device discovery, service registration, cross-device networking, static service activation (静态服务激活/拉起), ContinuityListenerService, or when the user mentions NetworkingManager, ServiceListener, TrustedDeviceInfo, BusinessServiceInfo, StaticConfig, or any Tianqin/Lyra networking APIs. Covers device discovery, service publishing, static configuration, callbacks, filters, and all data types.
 ---
 
 # Tianqin Networking SDK
@@ -16,6 +16,7 @@ The Tianqin Networking SDK (`com.xiaomi.continuity.networking.NetworkingManager`
 - Real-time device online/offline notifications
 - Device property queries
 - Cross-platform support (Android, iOS, Windows, etc.)
+- **Static service activation** (process wake-up without running)
 
 ## Prerequisites
 
@@ -45,6 +46,9 @@ dependencies {
 Add required permission to `AndroidManifest.xml`:
 
 ```xml
+<!-- Basic permission for static config operations -->
+<uses-permission android:name="com.xiaomi.permission.BIND_CONTINUITY_SERVICE" />
+<!-- System permission for process wake-up (requires platform signature or system app) -->
 <uses-permission android:name="com.xiaomi.permission.BIND_CONTINUITY_SERVICE_INTERNAL" />
 ```
 
@@ -91,6 +95,63 @@ serviceInfo.setServiceName("myService");
 serviceInfo.setServiceData(capabilityData); // Max 32 bytes
 manager.addServiceInfo(serviceInfo);
 ```
+
+## Static Service Activation (静态服务激活)
+
+Static configuration allows networking features without starting the app process. The process is woken via `bindService` when events occur.
+
+### Quick Setup
+
+1. Create Service extending `ContinuityListenerService`:
+
+```java
+public class ContinuitySampleService extends ContinuityListenerService {
+    @Override
+    public void onNotify(@NonNull Intent intent) {
+        String action = intent.getAction();
+        if (StaticConfig.ACTION_SERVICE_ONLINE.equals(action)) {
+            // Device came online - switch to dynamic API
+            TrustedDeviceInfo device = intent.getExtras()
+                .getParcelable(StaticConfig.EXTRA_NETWORKING_DEVICE);
+        }
+    }
+}
+```
+
+2. Configure in AndroidManifest.xml:
+
+```xml
+<service
+    android:name=".ContinuitySampleService"
+    android:exported="true"
+    android:permission="com.xiaomi.permission.BIND_CONTINUITY_LISTENER_SERVICE">
+    <intent-filter>
+        <action android:name="com.xiaomi.continuity.action.STATIC_CONFIG_ACTION" />
+    </intent-filter>
+    <meta-data android:name="static_networking_service_list"
+        android:resource="@xml/networking_service_list" />
+    <meta-data android:name="static_networking_service_filters"
+        android:resource="@xml/networking_service_filter" />
+</service>
+```
+
+3. Create res/xml/networking_service_list.xml (publish service):
+
+```xml
+<networking_service_list>
+    <service serviceName="myService" serviceData="[1,2]" notifyConnect="true" />
+</networking_service_list>
+```
+
+4. Create res/xml/networking_service_filter.xml (discover services):
+
+```xml
+<networking_service_filters>
+    <filter serviceName="targetService" deviceTypes="phone|pad" />
+</networking_service_filters>
+```
+
+For complete static configuration options, see **[Static Service Activation](references/static-service.md)**.
 
 ## Common Workflows
 
@@ -240,6 +301,7 @@ For complete API reference, data types, and code examples:
 
 - **[API Reference](references/api-reference.md)**: Complete interface documentation, all methods, parameters, return values, callbacks, and data types
 - **[Code Examples](references/examples.md)**: Complete sample application and common usage patterns
+- **[Static Service Activation](references/static-service.md)**: Static configuration for process wake-up without running
 
 ## Version Notes
 
