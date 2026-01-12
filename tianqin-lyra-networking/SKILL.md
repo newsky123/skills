@@ -48,7 +48,7 @@ Add required permission to `AndroidManifest.xml`:
 ```xml
 <!-- Basic permission for static config operations -->
 <uses-permission android:name="com.xiaomi.permission.BIND_CONTINUITY_SERVICE" />
-<!-- System permission for process wake-up (requires platform signature or system app) -->
+<!-- Required for dynamic addServiceInfo() and process wake-up (requires platform signature or system app) -->
 <uses-permission android:name="com.xiaomi.permission.BIND_CONTINUITY_SERVICE_INTERNAL" />
 ```
 
