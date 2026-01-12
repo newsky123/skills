@@ -41,6 +41,8 @@ dependencies {
 }
 ```
 
+After modifying gradle files, sync gradle to download the SDK dependencies.
+
 ### Permissions
 
 Add required permission to `AndroidManifest.xml`:
