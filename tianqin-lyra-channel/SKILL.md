@@ -60,10 +60,15 @@ import com.xiaomi.continuity.ContinuityListenerService;  // NOT com.xiaomi.conti
 
 // Channel classes
 import com.xiaomi.continuity.channel.ContinuityChannelManager;
-import com.xiaomi.continuity.channel.ChannelListener;
+import com.xiaomi.continuity.channel.ChannelListener;  // NOT ChannelCallback
 import com.xiaomi.continuity.channel.Channel;
 import com.xiaomi.continuity.channel.Packet;
 ```
+
+### Common API Mistakes
+
+- Use `channelManager.registerChannelListener()` with `ChannelListener` (NOT `registerChannelCallback` / `ChannelCallback`)
+- Send data via `channel.send()` (NOT `channelManager.send()`)
 
 ## Quick Start
 
