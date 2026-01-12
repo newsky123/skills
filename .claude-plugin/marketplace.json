@@ -10,21 +10,21 @@
   },
   "plugins": [
     {
-      "name": "tianqin-networking",
+      "name": "tianqin-lyra-networking",
       "description": "Xiaomi Tianqin-Lyra (天琴) Networking SDK for cross-device discovery and communication",
       "source": "./",
       "strict": false,
       "skills": [
-        "./tianqin-networking"
+        "./tianqin-lyra-networking"
       ]
     },
     {
-      "name": "tianqin-channel",
+      "name": "tianqin-lyra-channel",
       "description": "Xiaomi Tianqin-Lyra (天琴) Channel SDK for cross-device data transmission",
       "source": "./",
       "strict": false,
       "skills": [
-        "./tianqin-channel"
+        "./tianqin-lyra-channel"
       ]
     }
   ]
