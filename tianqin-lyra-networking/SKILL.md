@@ -52,6 +52,21 @@ Add required permission to `AndroidManifest.xml`:
 <uses-permission android:name="com.xiaomi.permission.BIND_CONTINUITY_SERVICE_INTERNAL" />
 ```
 
+### Key Imports
+
+```java
+// Core classes - note the correct package names
+import com.xiaomi.continuity.ServiceName;  // NOT com.xiaomi.continuity.networking.ServiceName
+import com.xiaomi.continuity.ContinuityListenerService;  // NOT com.xiaomi.continuity.staticconfig.ContinuityListenerService
+
+// Networking classes
+import com.xiaomi.continuity.networking.NetworkingManager;
+import com.xiaomi.continuity.networking.ServiceListener;
+import com.xiaomi.continuity.networking.TrustedDeviceInfo;
+import com.xiaomi.continuity.networking.BusinessServiceInfo;
+import com.xiaomi.continuity.networking.ServiceFilter;
+```
+
 ## Quick Start
 
 ### Basic Setup

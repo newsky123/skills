@@ -49,6 +49,20 @@ dependencies {
 <uses-permission android:name="com.xiaomi.permission.BIND_CONTINUITY_SERVICE_INTERNAL" />
 ```
 
+### Key Imports
+
+```java
+// Core classes - note the correct package names
+import com.xiaomi.continuity.ServiceName;  // NOT com.xiaomi.continuity.networking.ServiceName
+import com.xiaomi.continuity.ContinuityListenerService;  // NOT com.xiaomi.continuity.staticconfig.ContinuityListenerService
+
+// Channel classes
+import com.xiaomi.continuity.channel.ContinuityChannelManager;
+import com.xiaomi.continuity.channel.ChannelListener;
+import com.xiaomi.continuity.channel.Channel;
+import com.xiaomi.continuity.channel.Packet;
+```
+
 ## Quick Start
 
 ### Server Side (Receiver)
