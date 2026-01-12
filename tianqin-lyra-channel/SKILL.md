@@ -1,5 +1,5 @@
 ---
-name: tianqin-channel
+name: tianqin-lyra-channel
 description: Comprehensive documentation for Xiaomi Tianqin-Lyra (天琴) Channel SDK (com.xiaomi.continuity.channel.ContinuityChannelManager). Use when working with Tianqin transmission channels, data transfer, cross-device communication, static channel activation (静态传输通道激活/拉起), ContinuityListenerService, or when the user mentions ContinuityChannelManager, ChannelListener, Channel, Packet, createChannel, registerChannelListener, StaticConfig, ACTION_REQUEST_CONNECTION, or any Tianqin-Lyra channel APIs. Covers channel creation, data sending/receiving, file transfer, static configuration, and all channel data types.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: tianqin-networking
+name: tianqin-lyra-networking
 description: Comprehensive documentation for Xiaomi Tianqin-Lyra (天琴) Networking SDK (com.xiaomi.continuity.networking.NetworkingManager). Use when working with Tianqin device discovery, service registration, cross-device networking, static service activation (静态服务激活/拉起), ContinuityListenerService, or when the user mentions NetworkingManager, ServiceListener, TrustedDeviceInfo, BusinessServiceInfo, StaticConfig, or any Tianqin-Lyra networking APIs. Covers device discovery, service publishing, static configuration, callbacks, filters, and all data types.
 ---
 
