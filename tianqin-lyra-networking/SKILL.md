@@ -292,6 +292,12 @@ Devices automatically network when:
 - **Format**: Alphanumeric only, avoid special characters (,/.#:)
 - **Uniqueness**: Must be globally unique across apps
 
+### Device Type Constants
+
+Use the correct device type constants from `TrustedDeviceInfo`:
+- **Car**: Use `DEVICE_TYPE_MI_AUTOMOTIVE` (NOT `DEVICE_TYPE_CAR`)
+- **Speaker**: Use `DEVICE_TYPE_SOUND` (NOT `DEVICE_TYPE_SPEAKER`)
+
 ## Important Notes
 
 ### Callback Timing
