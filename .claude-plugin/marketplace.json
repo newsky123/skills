@@ -35,6 +35,15 @@
       "skills": [
         "./worktree"
       ]
+    },
+    {
+      "name": "tr3",
+      "description": "Technical solution documentation framework (TR3 format) for creating comprehensive technical proposals with background analysis, solution architecture, and recommendations",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./tr3"
+      ]
     }
   ]
 }
