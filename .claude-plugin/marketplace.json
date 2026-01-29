@@ -26,6 +26,15 @@
       "skills": [
         "./tianqin-lyra-channel"
       ]
+    },
+    {
+      "name": "worktree",
+      "description": "Git worktree workflow management for feature development with worktreenew and worktreemerge commands",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./worktree"
+      ]
     }
   ]
 }
