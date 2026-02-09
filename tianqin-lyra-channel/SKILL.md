@@ -336,6 +336,7 @@ protected void onDestroy() {
 - **[API Reference](references/api-reference.md)**: Complete interface documentation, all methods, parameters, callbacks, and data types
 - **[Code Examples](references/examples.md)**: File transfer, progress tracking, and common patterns
 - **[Static Channel Activation](references/static-channel.md)**: Static configuration for process wake-up on connection request
+- **[Error Codes](references/error-codes.md)**: Complete error code reference for all Lyra SDK modules
 
 ## Version Notes
 
